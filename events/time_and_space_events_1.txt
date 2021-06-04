@@ -1,0 +1,34 @@
+# Time And Space mod events
+
+namespace = timeandspace
+
+fleet_event = {
+        id = timeandspace.1
+        title = "timeandspace.1.name"
+        desc = "timeandspace.1.desc"
+		picture = GFX_evt_debris	
+		is_triggered_only = yes
+		
+
+		trigger = { 
+			FROM = { is_asteroid = yes } 
+			owner = { NOT = { has_country_flag = event_timeandspace1_fired } }
+			years_passed > 25
+		}
+
+		immediate = { 
+			random_list = {
+				90 = { }
+				10 = {
+					owner = { set_country_flag = event_timeandspace1_fired }
+					destroy_fleet = {
+						target = THIS
+					}
+				}
+			}											
+		}
+		option = {
+			name = DISCONCERTING
+		}
+		
+}

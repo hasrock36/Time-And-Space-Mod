@@ -1,0 +1,9 @@
+
+#fires pting event
+on_survey = {
+    events = {
+        timeandspace.1
+    }
+}
+
+
